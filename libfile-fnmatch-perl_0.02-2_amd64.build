@@ -1,0 +1,241 @@
+ dpkg-buildpackage -D -us -uc -ui -b -J5 -Pnobiarch,nocheck,nodoc -Zxz -z1
+dpkg-buildpackage: info: source package libfile-fnmatch-perl
+dpkg-buildpackage: info: source version 0.02-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by gregor herrmann <gregoa@debian.org>
+ dpkg-source -Zxz -z1 --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/libfile-fnmatch-perl.substvars debian/files
+	rm -fr -- debian/libfile-fnmatch-perl/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=1160173120 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_auto_configure
+	perl -I. Makefile.PL INSTALLDIRS=vendor "OPTIMIZE=-g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02=. -Wformat -march=native -pipe -Wformat-security -Wdate-time -D_FORTIFY_SOURCE=2"
+Checking if your kit is complete...
+Looks good
+Generating a Unix-style Makefile
+Writing Makefile for File::FnMatch
+Writing MYMETA.yml and MYMETA.json
+   dh_auto_build
+	make -j1
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02'
+cp FnMatch.pm blib/lib/File/FnMatch.pm
+Running Mkbootstrap for FnMatch ()
+chmod 644 "FnMatch.bs"
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- FnMatch.bs blib/arch/auto/File/FnMatch/FnMatch.bs 644
+"/usr/bin/perl" "/usr/share/perl/5.28/ExtUtils/xsubpp"  -typemap '/usr/share/perl/5.28/ExtUtils/typemap'  FnMatch.xs > FnMatch.xsc
+mv FnMatch.xsc FnMatch.c
+icc.pl -c  -I. -D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fwrapv -fno-strict-aliasing -pipe -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02=. -Wformat -march=native -pipe -Wformat-security -Wdate-time -D_FORTIFY_SOURCE=2   -DVERSION=\"0.02\" -DXS_VERSION=\"0.02\" -fPIC "-I/usr/lib/x86_64-linux-gnu/perl/5.28/CORE"   FnMatch.c
+Remark #2547: "/usr/local/include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
+In file included from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(1347) (col. 5): remark #193: zero used for undefined preprocessing identifier "VMS"
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(247) (col. 1): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(247) (col. 1): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(253) (col. 1): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1296) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1296) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1298) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1333) (col. 13): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1333) (col. 13): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1335) (col. 13): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1340) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1340) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1342) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1380) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1380) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1382) (col. 5): warning #2282: unrecognized GCC pragma
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1754) (col. 17): remark #2259: non-pointer conversion from "int" to "U8={unsigned char}" may lose significant bits
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1762) (col. 17): remark #2259: non-pointer conversion from "int" to "U8={unsigned char}" may lose significant bits
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1765) (col. 17): remark #2259: non-pointer conversion from "int" to "U16={unsigned short}" may lose significant bits
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1881) (col. 17): remark #2259: non-pointer conversion from "int" to "U16={unsigned short}" may lose significant bits
+In file included from /usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h(5446),
+                 from FnMatch.xs(2):
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(1893) (col. 16): remark #2259: non-pointer conversion from "int" to "U8={unsigned char}" may lose significant bits
+In file included from FnMatch.xs(7):
+ppport.h(2979) (col. 11): warning #47: incompatible redefinition of macro "PERL_UNUSED_DECL" (declared at line 328 of "/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/perl.h")
+FnMatch.c(175) (col. 27): remark #981: operands are evaluated in unspecified order
+FnMatch.c(175) (col. 27): remark #981: operands are evaluated in unspecified order
+FnMatch.c(178) (col. 2): remark #981: operands are evaluated in unspecified order
+FnMatch.xs(28) (col. 22): remark #981: operands are evaluated in unspecified order
+FnMatch.xs(28) (col. 22): remark #981: operands are evaluated in unspecified order
+FnMatch.xs(33) (col. 22): remark #981: operands are evaluated in unspecified order
+FnMatch.xs(33) (col. 22): remark #981: operands are evaluated in unspecified order
+FnMatch.c(169) (col. 1): remark #869: parameter "my_perl" was never referenced
+FnMatch.c(204) (col. 1): remark #1419: external declaration in primary source file
+FnMatch.xs(70) (col. 9): remark #981: operands are evaluated in unspecified order
+FnMatch.xs(70) (col. 9): remark #981: operands are evaluated in unspecified order
+FnMatch.c(205) (col. 1): remark #869: parameter "my_perl" was never referenced
+FnMatch.c(210) (col. 11): remark #593: variable "items" was set but never used
+/usr/lib/x86_64-linux-gnu/perl/5.28/CORE/inline.h(249) (col. 1): remark #177: function "S_croak_memory_wrap" was declared but never referenced
+rm -f blib/arch/auto/File/FnMatch/FnMatch.so
+icc.pl  -shared -L/usr/local/lib  FnMatch.o  -o blib/arch/auto/File/FnMatch/FnMatch.so  \
+      \
+  
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccrGSKVC.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+chmod 755 blib/arch/auto/File/FnMatch/FnMatch.so
+Manifying 1 pod document
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02'
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary
+   dh_auto_test
+   dh_testroot
+   dh_prep
+	rm -f -- debian/libfile-fnmatch-perl.substvars
+	rm -fr -- debian/.debhelper/generated/libfile-fnmatch-perl/ debian/libfile-fnmatch-perl/ debian/tmp/
+   dh_auto_install
+	install -d debian/libfile-fnmatch-perl
+	make -j1 install DESTDIR=/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02/debian/libfile-fnmatch-perl AM_UPDATE_INFO_DIR=no PREFIX=/usr
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02'
+"/usr/bin/perl" -MExtUtils::Command::MM -e 'cp_nonempty' -- FnMatch.bs blib/arch/auto/File/FnMatch/FnMatch.bs 644
+Manifying 1 pod document
+Files found in blib/arch: installing files in blib/lib into architecture dependent library tree
+Installing /dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02/debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so
+Installing /dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02/debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so.response
+Installing /dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02/debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/File/FnMatch.pm
+Installing /dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02/debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02'
+   dh_installdocs
+	install -d debian/libfile-fnmatch-perl/usr/share/doc/libfile-fnmatch-perl
+	install -d debian/.debhelper/generated/libfile-fnmatch-perl
+	install -p -m0644 debian/copyright debian/libfile-fnmatch-perl/usr/share/doc/libfile-fnmatch-perl/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/libfile-fnmatch-perl/usr/share/doc/libfile-fnmatch-perl/changelog.Debian
+	install -p -m0644 ./Changes debian/libfile-fnmatch-perl/usr/share/doc/libfile-fnmatch-perl/changelog
+   dh_installman
+	man -l --recode UTF-8 ./debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm > debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm.dh-new
+	mv debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm.dh-new debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm
+	chmod 0644 -- debian/libfile-fnmatch-perl/usr/share/man/man3/File::FnMatch.3pm
+   dh_perl
+	(grep -a -s -v perl:Depends debian/libfile-fnmatch-perl.substvars; echo "perl:Depends=perl (>= 5.28.1-3)") > debian/libfile-fnmatch-perl.substvars.new
+	mv debian/libfile-fnmatch-perl.substvars.new debian/libfile-fnmatch-perl.substvars
+	(grep -a -s -v perl:Depends debian/libfile-fnmatch-perl.substvars; echo "perl:Depends=perl (>= 5.28.1-3), perlapi-5.28.1") > debian/libfile-fnmatch-perl.substvars.new
+	mv debian/libfile-fnmatch-perl.substvars.new debian/libfile-fnmatch-perl.substvars
+	rmdir --ignore-fail-on-non-empty --parents debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/libfile-fnmatch-perl
+	chmod a-x usr/share/doc/libfile-fnmatch-perl/changelog usr/share/doc/libfile-fnmatch-perl/changelog.Debian usr/share/man/man3/File::FnMatch.3pm
+	gzip -9nf usr/share/doc/libfile-fnmatch-perl/changelog usr/share/doc/libfile-fnmatch-perl/changelog.Debian usr/share/man/man3/File::FnMatch.3pm
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libfile-fnmatch-perl/libfile-fnmatch-perl-0.02'
+   dh_fixperms
+	find debian/libfile-fnmatch-perl -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libfile-fnmatch-perl ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libfile-fnmatch-perl/usr/share/doc -type f -a -true -a ! -regex 'debian/libfile-fnmatch-perl/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfile-fnmatch-perl/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libfile-fnmatch-perl/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28 -type f -perm -5 -name '*.pm' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a-X
+	find debian/libfile-fnmatch-perl -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfile-fnmatch-perl/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+   dh_missing
+   dh_strip
+	install -d debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/lib/debug/.build-id/8c
+	objcopy --only-keep-debug --compress-debug-sections debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/lib/debug/.build-id/8c/cdf6e0123b16ab1e9adcb1271bd1e9bdc98064.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/lib/debug/.build-id/8c/cdf6e0123b16ab1e9adcb1271bd1e9bdc98064.debug
+	chown 0:0 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/lib/debug/.build-id/8c/cdf6e0123b16ab1e9adcb1271bd1e9bdc98064.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/lib/debug/.build-id/8c/cdf6e0123b16ab1e9adcb1271bd1e9bdc98064.debug debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/share/doc
+	ln -s libfile-fnmatch-perl debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/usr/share/doc/libfile-fnmatch-perl-dbgsym
+   dh_makeshlibs
+	rm -f debian/libfile-fnmatch-perl/DEBIAN/shlibs
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+   dh_shlibdeps
+	install -d debian/libfile-fnmatch-perl/DEBIAN
+	dpkg-shlibdeps -Tdebian/libfile-fnmatch-perl.substvars debian/libfile-fnmatch-perl/usr/lib/x86_64-linux-gnu/perl5/5.28/auto/File/FnMatch/FnMatch.so
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+   dh_installdeb
+   dh_gencontrol
+	echo misc:Depends= >> debian/libfile-fnmatch-perl.substvars
+	echo misc:Pre-Depends= >> debian/libfile-fnmatch-perl.substvars
+	install -d debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/DEBIAN
+	dpkg-gencontrol -plibfile-fnmatch-perl -ldebian/changelog -Tdebian/libfile-fnmatch-perl.substvars -Pdebian/.debhelper/libfile-fnmatch-perl/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=libfile-fnmatch-perl-dbgsym "-DDepends=libfile-fnmatch-perl (= \${binary:Version})" "-DDescription=debug symbols for libfile-fnmatch-perl" -DBuild-Ids=8ccdf6e0123b16ab1e9adcb1271bd1e9bdc98064 -DSection=debug -UMulti-Arch -UReplaces -UBreaks
+	chmod 0644 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -plibfile-fnmatch-perl -ldebian/changelog -Tdebian/libfile-fnmatch-perl.substvars -Pdebian/libfile-fnmatch-perl -UMulti-Arch
+	chmod 0644 -- debian/libfile-fnmatch-perl/DEBIAN/control
+	chown 0:0 -- debian/libfile-fnmatch-perl/DEBIAN/control
+   dh_md5sums
+	cd debian/libfile-fnmatch-perl >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/libfile-fnmatch-perl/DEBIAN/md5sums
+	chown 0:0 -- debian/libfile-fnmatch-perl/DEBIAN/md5sums
+	cd debian/.debhelper/libfile-fnmatch-perl/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/libfile-fnmatch-perl/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/libfile-fnmatch-perl ..
+	dpkg-deb --build debian/.debhelper/libfile-fnmatch-perl/dbgsym-root ..
+dpkg-deb: building package 'libfile-fnmatch-perl' in '../libfile-fnmatch-perl_0.02-2_amd64.deb'.
+dpkg-deb: building package 'libfile-fnmatch-perl-dbgsym' in '../libfile-fnmatch-perl-dbgsym_0.02-2_amd64.deb'.
+FAKEROOTKEY=1004824986 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../libfile-fnmatch-perl_0.02-2_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source -Zxz -z1 --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian libfile-fnmatch-perl_0.02-2_amd64.changes ...
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+Finished running lintian.

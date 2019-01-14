@@ -1,0 +1,54 @@
+Format: 1.8
+Date: Sat, 22 Feb 2014 17:42:35 +0100
+Source: libfile-fnmatch-perl
+Binary: libfile-fnmatch-perl
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 0.02-2
+Distribution: unstable
+Urgency: low
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Changed-By: gregor herrmann <gregoa@debian.org>
+Description:
+ libfile-fnmatch-perl - Perl module that provides simple filename and pathname matching
+Changes:
+ libfile-fnmatch-perl (0.02-2) unstable; urgency=low
+ .
+   * Team upload.
+ .
+   [ Salvatore Bonaccorso ]
+   * debian/control: Changed: Replace versioned (build-)dependency on
+     perl (>= 5.6.0-{12,16}) with an unversioned dependency on perl (as
+     permitted by Debian Policy 3.8.3).
+ .
+   [ Ansgar Burchardt ]
+   * debian/control: Convert Vcs-* fields to Git.
+ .
+   [ Nathan Handler ]
+   * Email change: Nathan Handler -> nhandler@debian.org
+ .
+   [ Salvatore Bonaccorso ]
+   * Change search.cpan.org based URIs to metacpan.org based URIs
+ .
+   [ Axel Beckert ]
+   * debian/copyright: migrate pre-1.0 format to 1.0 using "cme fix dpkg-
+     copyright"
+ .
+   [ gregor herrmann ]
+   * Switch to "3.0 (quilt)" source format.
+   * debian/rules: convert to three-line dh(1) variant.
+   * debian/copyright: refresh license stanzas.
+   * Use debhelper 9.20120312 to get all hardening flags.
+   * Declare compliance with Debian Policy 3.9.5.
+Checksums-Sha1:
+ 6e3195e23f190bea64e78ebbfbc10a0b327d0f1a 20028 libfile-fnmatch-perl-dbgsym_0.02-2_amd64.deb
+ c98609f970a4b9903bbae70ffd8190140dacc75e 5694 libfile-fnmatch-perl_0.02-2_amd64.buildinfo
+ a90abad85ddf8acf9fd16ed43cc4987ee50f708b 10492 libfile-fnmatch-perl_0.02-2_amd64.deb
+Checksums-Sha256:
+ 38f7cac477c0996e26d83698586f4ad10c0b074de7bc2847e85b560445811d5c 20028 libfile-fnmatch-perl-dbgsym_0.02-2_amd64.deb
+ 520e1320b3ca2349e3149aba9346c5ae9d1920393e7c97595a6c303a386ff683 5694 libfile-fnmatch-perl_0.02-2_amd64.buildinfo
+ 7d00f5f6b94952b23ee32a61b0ca8b2fa9ed582ed8ab96a842dca85eef265c16 10492 libfile-fnmatch-perl_0.02-2_amd64.deb
+Files:
+ 3c9fb521d2106f1c2ad62497dfd433a0 20028 debug optional libfile-fnmatch-perl-dbgsym_0.02-2_amd64.deb
+ 09e5e41a1eec5d25fda3ad6d16034b94 5694 perl optional libfile-fnmatch-perl_0.02-2_amd64.buildinfo
+ ba6043a244eb6d9faa748ed8b2a4d8ec 10492 perl optional libfile-fnmatch-perl_0.02-2_amd64.deb

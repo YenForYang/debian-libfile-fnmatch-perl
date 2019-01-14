@@ -1,0 +1,12 @@
+Package: libfile-fnmatch-perl-dbgsym
+Source: libfile-fnmatch-perl
+Version: 0.02-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Installed-Size: 33
+Depends: libfile-fnmatch-perl (= 0.02-2)
+Section: debug
+Priority: optional
+Description: debug symbols for libfile-fnmatch-perl
+Build-Ids: 8ccdf6e0123b16ab1e9adcb1271bd1e9bdc98064
